@@ -1,12 +1,16 @@
-import pygame, random
-from game.env.target import Target
-from game.env.object import Object
-from game.env.border import Border
-from game.env.stone import Stone
 import cv2
+import pygame
+import random
+from abc import ABCMeta, abstractmethod
+
+from game.env.border import Border
+from game.env.object import Object
+from game.env.stone import Stone
+from game.env.target import Target
+from game.agent.iagent import IAgent
 
 
-class Agent(pygame.sprite.Sprite):
+class CDAgent(pygame.sprite.Sprite, IAgent):
     def __init__(self, env, trainingMode=False, rootFol=''):
         super().__init__()
         self.env = env
@@ -18,12 +22,12 @@ class Agent(pygame.sprite.Sprite):
         self.finish = False
         self.trainingMode = trainingMode
 
-        self.image = pygame.image.load(rootFol + "game/agent/resources/agent.png").convert_alpha()
+        self.image = pygame.image.load(rootFol + "game/agent/resources/gridworld_agent.png").convert_alpha()
 
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
-        self.rect.x = self.width + 16
-        self.rect.y = self.height + 16
+        self.rect.x = self.width
+        self.rect.y = self.height
         self.direct = 2
         self.random_direct = 2
         self.Id = 0
@@ -119,11 +123,11 @@ class Agent(pygame.sprite.Sprite):
         screen.blit(textsurface, (205, 0))
 
     def firstView(self, surface, view_range=5):
-        im = pygame.Surface((self.env.sprite_width*view_range, self.env.sprite_height*view_range))
+        im = pygame.Surface((self.env.sprite_width * view_range, self.env.sprite_height * view_range))
         im.blit(surface, (0, 0),
-                ((self.rect.x - ((view_range-1)/2)*self.env.sprite_width,
-                  self.rect.y - ((view_range-1)/2)*self.env.sprite_height),
-                 (self.env.sprite_width*view_range, self.env.sprite_height*view_range)))
+                ((self.rect.x - ((view_range - 1) / 2) * self.env.sprite_width,
+                  self.rect.y - ((view_range - 1) / 2) * self.env.sprite_height),
+                 (self.env.sprite_width * view_range, self.env.sprite_height * view_range)))
 
         img = pygame.surfarray.array3d(im)
         img = img.swapaxes(0, 1)
@@ -134,13 +138,13 @@ class Agent(pygame.sprite.Sprite):
         if self.finish:
             return
         if direct == 1:
-            return self.moveUp(3)
+            return self.moveUp(32)
         elif direct == 2:
-            return self.moveRight(3)
+            return self.moveRight(32)
         elif direct == 3:
-            return self.moveDown(3)
+            return self.moveDown(32)
         elif direct == 4:
-            return self.moveLeft(3)
+            return self.moveLeft(32)
 
     def random_walk(self):
         if self.finish:
@@ -155,8 +159,6 @@ class Agent(pygame.sprite.Sprite):
             p = random.randint(1, 101)
             if p > 95:
                 self.random_direct = random.randint(1, 4)
-
-
 
     # def checkCol(self, dx, dy):
     #     all_cols = pygame.sprite.spritecollide(self, self.env.all_sprites, False, pygame.sprite.collide_mask)

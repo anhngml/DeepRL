@@ -4,12 +4,13 @@ from game.env.stone import Stone
 from game.env.border import Border
 from game.env.object import Object
 from game.env.target import Target
+from game.env.ienv import IEnv
 
 
-class Env:
+class CDEnv(IEnv):
 
     def __init__(self, rootFol=''):
-        tiled_map = load_pygame(rootFol + 'game/env/map/resources/map.tmx', invert_y=True)
+        tiled_map = load_pygame(rootFol + 'game/env/map/resources/gridworld/gridworld.tmx', invert_y=True)
         assert isinstance(tiled_map, object)
         self.gameMap = tiled_map
         self.all_sprites = pygame.sprite.Group()
@@ -54,7 +55,7 @@ class Env:
                 sprite.finish = True
         return len(all_cols) > 0, all_cols
 
-    def Capture(display, name, pos, size):  # (pygame Surface, String, tuple, tuple)
+    def Capture(self, display, name, pos, size):  # (pygame Surface, String, tuple, tuple)
         image = pygame.Surface(size)  # Create image surface
         image.blit(display, (0, 0), (pos, size))  # Blit portion of the display to the image
         pygame.image.save(image, name)  # Save the image to the disk
