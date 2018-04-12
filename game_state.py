@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
-import numpy as np
-import cv2
-# from ale_python_interface import ALEInterface
 import game.mygym as gym
 from constants import VISUAL
-from constants import ACTION_SIZE
 
 
 class GameState(object):
