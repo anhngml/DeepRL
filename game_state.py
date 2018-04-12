@@ -2,6 +2,7 @@
 import sys
 import game.mygym as gym
 from constants import VISUAL
+from constants import ACTION_SIZE
 
 
 class GameState(object):

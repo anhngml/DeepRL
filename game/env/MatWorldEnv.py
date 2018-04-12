@@ -1,5 +1,6 @@
 from game.env.ienv import IEnv
 from random import randint
+from game.env.matWorldTarget import MWTarget
 import copy
 
 
@@ -17,7 +18,10 @@ class MatWorldEnv(IEnv):
         self.map = Map().maps[0]
 
     def check_col(self, sprite):
+        # if not isinstance(sprite, MWTarget):
         for target in self.all_targets:
+            if target == sprite:
+                continue
             if sprite.x == target.x and sprite.y == target.y:
                 return True, self.hit_target_reward, True
         if sprite.x > self.mapwidth - 1 or sprite.x < 0\
