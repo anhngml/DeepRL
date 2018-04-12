@@ -40,21 +40,8 @@ class DQNAgent:
     def _build_model(self):
         # Neural Net for Deep-Q learning Model
         model = Sequential()
-        model.add(Conv2D(16, kernel_size=(3, 3),
-                         activation='relu',
-                         input_shape=self.state_size))
-        model.add(Conv2D(32, (3, 3), activation='relu'))
-        model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.25))
-        model.add(Conv2D(64, (3, 3), activation='relu'))
-        model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.25))
-        model.add(Conv2D(64, (3, 3), activation='relu'))
-        model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.25))
-        model.add(Flatten())
-        model.add(Dense(256, activation='relu'))  # input_dim=self.state_size,
-        model.add(Dense(128, activation='relu'))
+        model.add(Dense(32, input_dim=self.state_size, activation='relu'))  # input_dim=self.state_size,
+        model.add(Dense(32, activation='relu'))
         model.add(Dense(self.action_size, activation='linear'))
         model.compile(loss=self._huber_loss,
                       optimizer=Adam(lr=self.learning_rate))
@@ -71,17 +58,17 @@ class DQNAgent:
 
     def act(self, state):
         if np.random.rand() <= self.epsilon:
-            ran = self.last_rand_act
-            if self.last_reward < -0.01:
-                ran = random.randrange(self.action_size)
-                while ran == self.last_rand_act:
-                    ran = random.randrange(self.action_size)
-            else:
-                p = random.randint(1, 101)
-                if p > 90:
-                    ran = random.randrange(self.action_size)
-            return ran
-            # return random.randrange(self.action_size)
+            # ran = self.last_rand_act
+            # if self.last_reward < -0.01:
+            #     ran = random.randrange(self.action_size)
+            #     while ran == self.last_rand_act:
+            #         ran = random.randrange(self.action_size)
+            # else:
+            #     p = random.randint(1, 101)
+            #     if p > 90:
+            #         ran = random.randrange(self.action_size)
+            # return ran
+            return random.randrange(self.action_size)
         act_values = self.model.predict(state)
         return np.argmax(act_values[0])  # returns action
 
@@ -89,6 +76,7 @@ class DQNAgent:
         minibatch = random.sample(self.memory, batch_size)
         for state, action, reward, next_state, done in minibatch:
             target = self.model.predict(state)
+            # print(target)
             if done:
                 target[0][action] = reward
             else:
@@ -104,33 +92,3 @@ class DQNAgent:
 
     def save(self, name):
         self.model.save_weights(name)
-
-
-if __name__ == "__main__":
-    env = gym.make()
-    state_size = env.observation_space_shape
-    action_size = len(env.action_space)
-    agent = DQNAgent(state_size, action_size)
-    # agent.load("training/save/cd-ddqn.h5")
-    done = False
-    batch_size = 32
-
-    for e in range(EPISODES):
-        state = env.reset()
-        state = np.reshape(state, [1, state_size[0], state_size[1], state_size[2]])
-        for time in range(500):
-            action = agent.act(state)
-            next_state, reward, done, _ = env.step(action)
-            # reward = reward if not done else -10
-            next_state = np.reshape(next_state, [1, state_size[0], state_size[1], state_size[2]])
-            agent.remember(state, action, reward, next_state, done)
-            state = next_state
-            if done:
-                agent.update_target_model()
-                print("episode: {}/{}, score: {}, e: {:.2}"
-                      .format(e, EPISODES, time, agent.epsilon))
-                break
-        if len(agent.memory) > batch_size:
-            agent.replay(batch_size)
-        if e % 10 == 0:
-            agent.save("training/save/cd-ddqn.h5")

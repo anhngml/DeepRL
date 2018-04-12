@@ -2,87 +2,50 @@
 import sys
 import numpy as np
 import cv2
-from ale_python_interface import ALEInterface
-
-from constants import ROM
+# from ale_python_interface import ALEInterface
+import game.mygym as gym
+from constants import VISUAL
 from constants import ACTION_SIZE
 
+
 class GameState(object):
-  def __init__(self, rand_seed, display=False, no_op_max=7):
-    self.ale = ALEInterface()
-    self.ale.setInt(b'random_seed', rand_seed)
-    self.ale.setFloat(b'repeat_action_probability', 0.0)
-    self.ale.setBool(b'color_averaging', True)
-    self.ale.setInt(b'frame_skip', 4)
-    self._no_op_max = no_op_max
+    def __init__(self, rand_seed, display=False, no_op_max=7):
+        self.env = gym.make(visual=VISUAL, game='MatWorld')
+        self.state_size = self.env.observation_space_shape
+        self.action_size = len(self.env.action_space)
 
-    if display:
-      self._setup_display()
-    
-    self.ale.loadROM(ROM.encode('ascii'))
+        self._no_op_max = no_op_max
 
-    # collect minimal action set
-    self.real_actions = self.ale.getMinimalActionSet()
+        if display:
+            self._setup_display()
+        self.reset()
 
-    # height=210, width=160
-    self._screen = np.empty((210, 160, 1), dtype=np.uint8)
+    def _process_frame(self, action):
+        x_t, reward, terminal, total_reward = self.env.step(action)
+        return reward, terminal, x_t
 
-    self.reset()
+    def _setup_display(self):
+        if sys.platform == 'darwin':
+            import pygame
+            pygame.init()
 
-  def _process_frame(self, action, reshape):
-    reward = self.ale.act(action)
-    terminal = self.ale.game_over()
+    def reset(self):
+        x_t = self.env.reset()
+        # _, _, x_t = self._process_frame(0)
 
-    # screen shape is (210, 160, 1)
-    self.ale.getScreenGrayscale(self._screen)
-    
-    # reshape it into (210, 160)
-    reshaped_screen = np.reshape(self._screen, (210, 160))
-    
-    # resize to height=110, width=84
-    resized_screen = cv2.resize(reshaped_screen, (84, 110))
-    
-    x_t = resized_screen[18:102,:]
-    if reshape:
-      x_t = np.reshape(x_t, (84, 84, 1))
-    x_t = x_t.astype(np.float32)
-    x_t *= (1.0/255.0)
-    return reward, terminal, x_t
-    
-    
-  def _setup_display(self):
-    if sys.platform == 'darwin':
-      import pygame
-      pygame.init()
-      self.ale.setBool(b'sound', False)
-    elif sys.platform.startswith('linux'):
-      self.ale.setBool(b'sound', True)
-    self.ale.setBool(b'display_screen', True)
+        self.reward = 0
+        self.terminal = False
+        self.s_t = x_t  # np.stack((x_t, x_t, x_t, x_t), axis=1)
 
-  def reset(self):
-    self.ale.reset_game()
-    
-    # randomize initial state
-    if self._no_op_max > 0:
-      no_op = np.random.randint(0, self._no_op_max + 1)
-      for _ in range(no_op):
-        self.ale.act(0)
+    def process(self, action):
+        # convert original 18 action index to minimal action set index
+        # real_action = self.real_actions[action]
 
-    _, _, x_t = self._process_frame(0, False)
-    
-    self.reward = 0
-    self.terminal = False
-    self.s_t = np.stack((x_t, x_t, x_t, x_t), axis = 2)
-    
-  def process(self, action):
-    # convert original 18 action index to minimal action set index
-    real_action = self.real_actions[action]
-    
-    r, t, x_t1 = self._process_frame(real_action, True)
+        r, t, x_t1 = self._process_frame(action)
 
-    self.reward = r
-    self.terminal = t
-    self.s_t1 = np.append(self.s_t[:,:,1:], x_t1, axis = 2)    
+        self.reward = r
+        self.terminal = t
+        self.s_t1 = x_t1  # np.append(self.s_t[:, 1:], x_t1, axis=1)
 
-  def update(self):
-    self.s_t = self.s_t1
+    def update(self):
+        self.s_t = self.s_t1

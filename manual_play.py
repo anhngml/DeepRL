@@ -1,7 +1,7 @@
-from game.game import Game
+from game.matgame import Game
 
 if __name__ == "__main__":
-    g = Game(name='GridWorld')
+    g = Game(name='MatWorld')
     g.new()
-    g.run(False)
+    g.run(True)
 

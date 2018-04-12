@@ -9,35 +9,17 @@ from game.env.stone import Stone
 from game.env.target import Target
 
 
-class IAgent:
+class IEnv:
     __metaclass__ = ABCMeta
 
     @classmethod
     def version(self): return "1.0"
 
     @abstractmethod
-    def __init__(self, env, trainingMode=False, rootFol=''): raise NotImplementedError
+    def __init__(self, rootFol=''): raise NotImplementedError
 
     @abstractmethod
-    def moveRight(self, pixels): raise NotImplementedError
+    def refresh(self, background): raise NotImplementedError
 
     @abstractmethod
-    def moveLeft(self, pixels): raise NotImplementedError
-
-    @abstractmethod
-    def moveUp(self, pixels): raise NotImplementedError
-
-    @abstractmethod
-    def moveDown(self, pixels): raise NotImplementedError
-
-    @abstractmethod
-    def move(self, direct): raise NotImplementedError
-
-    @abstractmethod
-    def random_walk(self): raise NotImplementedError
-
-    @abstractmethod
-    def updateReward(self, font, screen): raise NotImplementedError
-
-    @abstractmethod
-    def firstView(self, surface, view_range=5): raise NotImplementedError
+    def check_col(self, sprite): raise NotImplementedError

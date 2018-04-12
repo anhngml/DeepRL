@@ -1,7 +1,7 @@
 import pygame, pytmx
 
 
-class Stone(pygame.sprite.Sprite):
+class Background(pygame.sprite.Sprite):
     def __init__(self, env, x, y, img):
         super().__init__()
         self.env = env

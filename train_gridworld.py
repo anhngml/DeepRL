@@ -24,6 +24,10 @@ if __name__ == "__main__":
         state = np.reshape(state, [1, state_size])  # --> grid_world, vector
 
         for time in range(max_step):
+            # for i in range(3):
+            #     action = agent.act(state)
+            #     next_state, reward, done, total_reward = env.step(action)
+
             action = agent.act(state)
             next_state, reward, done, total_reward = env.step(action)
             # next_state = np.reshape(next_state, [1, state_size[0], state_size[1], state_size[2]]) --> cd_game, img
@@ -31,7 +35,7 @@ if __name__ == "__main__":
             # print(next_state)
             if visual:
                 cv2.imshow('state', next_state)
-                cv2.waitKey(1)
+                cv2.waitKey(10)
             if verbose:
                 if reward <= -1:
                     print('step reward: {}, total reward: {:2}, score: {}, e: {:.2}'.
@@ -46,9 +50,11 @@ if __name__ == "__main__":
             if done:
                 agent.update_target_model()
                 print("episode: {}/{}, score: {}, e: {:.2}"
-                      .format(e, EPISODES, time, agent.epsilon))
+                      .format(e+1, EPISODES, time, agent.epsilon))
                 break
+            elif e % 10 == 0:
+                agent.update_target_model()
         if len(agent.memory) > batch_size:
             agent.replay(batch_size)
-        # if e % 10 == 0:
-        #     agent.save("training/save/gw-ddqn.h5")
+        if e % 10 == 0:
+            agent.save("training/save/gw-ddqn.h5")

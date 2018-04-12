@@ -10,7 +10,7 @@ from game.env.ienv import IEnv
 class CDEnv(IEnv):
 
     def __init__(self, rootFol=''):
-        tiled_map = load_pygame(rootFol + 'game/env/map/resources/gridworld/gridworld.tmx', invert_y=True)
+        tiled_map = load_pygame(rootFol + 'game/env/map/resources/cdgame/map.tmx', invert_y=True)
         assert isinstance(tiled_map, object)
         self.gameMap = tiled_map
         self.all_sprites = pygame.sprite.Group()

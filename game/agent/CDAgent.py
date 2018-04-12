@@ -22,7 +22,7 @@ class CDAgent(pygame.sprite.Sprite, IAgent):
         self.finish = False
         self.trainingMode = trainingMode
 
-        self.image = pygame.image.load(rootFol + "game/agent/resources/gridworld_agent.png").convert_alpha()
+        self.image = pygame.image.load(rootFol + "game/agent/resources/agent.png").convert_alpha()
 
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
@@ -134,17 +134,23 @@ class CDAgent(pygame.sprite.Sprite, IAgent):
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
         return img
 
+    def update_targets_info(self):
+        pass
+
+    def observation(self, surface, view_range=5):
+        return self.firstView(surface, view_range)
+
     def move(self, direct):
         if self.finish:
             return
         if direct == 1:
-            return self.moveUp(32)
+            return self.moveUp(4)
         elif direct == 2:
-            return self.moveRight(32)
+            return self.moveRight(4)
         elif direct == 3:
-            return self.moveDown(32)
+            return self.moveDown(4)
         elif direct == 4:
-            return self.moveLeft(32)
+            return self.moveLeft(4)
 
     def random_walk(self):
         if self.finish:
