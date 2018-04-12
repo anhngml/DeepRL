@@ -17,8 +17,8 @@ class Game:
             target = MWTarget(self.env, 0, 0)
             self.env.all_targets.append(target)
             self.env.random_put_on(agent)
-            # self.env.random_put_on(target)
-            self.env.put_on(target, 15, 15)
+            self.env.random_put_on(target)
+            # self.env.put_on(target, 15, 15)
             self.env.all_agent.append(agent)
         except Exception as e:
             print(e)

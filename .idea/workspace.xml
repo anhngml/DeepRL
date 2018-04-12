@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44ffdd36-ab52-42fe-9326-c5e57124fe07" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/a3c.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a3c_display.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a3c_training_thread.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a3c_visualize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/agent/MatWorldAgent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/env/MatWorldEnv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/env/matWorldTarget.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/matgame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/test_multi_game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game_ac_network.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game_state.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game_state_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rmsprop_applier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rmsprop_applier_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DeepRL.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeepRL.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/agent/CDAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/agent/CDAgent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/agent/GridWorldAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/agent/GridWorldAgent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/agent/iagent.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/agent/iagent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/env/CDEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/env/CDEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/env/GridWorldEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/env/GridWorldEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/env/background.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/env/background.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/env/ienv.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/env/ienv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/env/target.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/env/target.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/mygym.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/mygym.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/stack.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/stack.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play.py" beforeDir="false" afterPath="$PROJECT_DIR$/manual_play.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_cd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_gridworld.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_gridworld.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/ddqn_gw.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/ddqn_gw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/matgame.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/matgame.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,11 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="matgame.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matgame.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game/matgame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+            <state relative-caret-position="185">
+              <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -61,11 +38,20 @@
       <file leaf-file-name="game_state.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="45">
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -103,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatWorldEnv.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatWorldEnv.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/env/MatWorldEnv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="97">
               <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
@@ -170,7 +156,6 @@
         <option value="$PROJECT_DIR$/training/test_env.py" />
         <option value="$PROJECT_DIR$/training/ddqn.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/game/env/map/resources/gridworld/gridworld.tmx" />
         <option value="$PROJECT_DIR$/game/agent/agent.py" />
         <option value="$PROJECT_DIR$/game/env/ienv.py" />
@@ -197,12 +182,13 @@
         <option value="$PROJECT_DIR$/game/game.py" />
         <option value="$PROJECT_DIR$/constants.py" />
         <option value="$PROJECT_DIR$/game/env/matWorldTarget.py" />
-        <option value="$PROJECT_DIR$/game_state.py" />
         <option value="$PROJECT_DIR$/game/mygym.py" />
-        <option value="$PROJECT_DIR$/game/matgame.py" />
         <option value="$PROJECT_DIR$/manual_play.py" />
         <option value="$PROJECT_DIR$/game/agent/MatWorldAgent.py" />
         <option value="$PROJECT_DIR$/game/env/MatWorldEnv.py" />
+        <option value="$PROJECT_DIR$/game_state.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/game/matgame.py" />
       </list>
     </option>
   </component>
@@ -229,11 +215,6 @@
             <path>
               <item name="DeepRL" type="b2602c69:ProjectViewProjectNode" />
               <item name="DeepRL" type="462c0819:PsiDirectoryNode" />
-              <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepRL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepRL" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,11 +228,6 @@
               <item name="DeepRL" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="env" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepRL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepRL" type="462c0819:PsiDirectoryNode" />
-              <item name="tmp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -445,11 +421,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50277996" side_tool="true" weight="0.4172767" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32892805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49722" visible="true" weight="0.4287812" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49722" weight="0.4287812" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.329429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.36123347" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.36123347" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5256975" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,7 +500,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/game_state.py</url>
-          <line>47</line>
+          <line>43</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -567,13 +543,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.3/python_stubs/-1722888034/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="245" column="4" selection-start-line="245" selection-start-column="4" selection-end-line="245" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/game/env/map/resources/gridworld/gridworld.tmx">
       <provider selected="true" editor-type-id="text-editor">
@@ -859,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Applications/anaconda/lib/python3.6/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -893,30 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="e#24#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manual_play.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/matgame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -940,13 +882,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game/env/MatWorldEnv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="97">
           <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#1747#12677#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/matgame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
