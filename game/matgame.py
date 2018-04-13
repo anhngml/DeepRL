@@ -4,15 +4,16 @@ from game.env.matWorldTarget import MWTarget
 
 
 class Game:
-    def __init__(self, name='MatGame'):
+    def __init__(self, name='MatGame', randMap=False):
         self.finish = False
         self.name = name
         self.env = None
+        self.ranMap = randMap
 
     def new(self):
         try:
             self.finish = False
-            self.env = MatWorldEnv()
+            self.env = MatWorldEnv(self.ranMap)
             agent = MWAgent(self.env)
             target = MWTarget(self.env, 0, 0)
             self.env.all_targets.append(target)
@@ -51,7 +52,10 @@ class Game:
         pass
 
     def run(self, visual=False):
+        max_step = 3
+        num_step = 0
         while True:
+            num_step += 1
             for agent in self.env.all_agent:
                 finish, reward = agent.random_walk()
                 if visual:
@@ -60,6 +64,7 @@ class Game:
                 agent.observation()
                 if finish:
                     break
-
+            if num_step > max_step:
+                break
 
 

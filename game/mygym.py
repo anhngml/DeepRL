@@ -8,7 +8,7 @@ class myEnv:
         self.observation_space_shape = 5*5*4 + 2*1  # [32*5, 32*5, 3]
         self.action_space = [1, 2, 3, 4]
         if game == 'MatWorld':
-            self.game = matgame.Game()
+            self.game = matgame.Game(randMap=True)
         else:
             self.game = Game(trainingMode=True, rootFol='', visual=self.visual, name=game)
 
